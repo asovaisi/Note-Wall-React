@@ -49,7 +49,7 @@ const Board = () => {
 
     return (
         <div className="flex">
-            <div className="bg-gray-800 w-96 h-lvh p-5">
+            <div className="bg-gray-800 w-1/4 h-lvh p-5">
                 <NoteForm onAdd={handleAdd} onEdit={handleEdit} note={editingNote} />
             </div>
             <div className="w-full h-full flex-grow p-5">

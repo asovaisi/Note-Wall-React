@@ -47,14 +47,23 @@ const NoteForm = ({ onAdd, onEdit, note }: NoteFormProps) => {
 
     return (
         <>
-            <div className="bg-gray-600 p-5 rounded-lg shadow-2xl">
+            <div className="bg-gray-600 p-5 block rounded-lg shadow-2xl">
                 <h2 className="text-white text-xl mb-4">{note ? "Edit Note" : "Add Note"}</h2>
+
                 <label className="text-white">Title</label>
                 <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} className="w-full p-2 mb-4 rounded" />
+
                 <label className="text-white">Task:</label>
-                <input type="text" value={noteText} onChange={(e) => setNoteText(e.target.value)} className="w-full p-2 mb-4 rounded" />
+                {/* Changed input to textarea to allow larger content */}
+                <textarea
+                    value={noteText}
+                    onChange={(e) => setNoteText(e.target.value)}
+                    className="w-full p-2 mb-4 rounded h-40" // Set height as needed
+                />
+
                 <label className="text-white">Task Deadline</label>
                 <input type="date" value={deadLine} onChange={(e) => setDeadLine(e.target.value)} className="w-full p-2 mb-4 rounded" />
+
                 <button className="bg-slate-400 rounded-3xl px-4 py-2 text-white" onClick={handleClick}>
                     {note ? "Update" : "Submit"}
                 </button>

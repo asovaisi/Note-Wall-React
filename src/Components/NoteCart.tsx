@@ -24,7 +24,7 @@ const NoteCart = ({ note, onDelete, onEdit, handleMoveLeft, handleMoveRight, ind
     const isDeadlineReached = new Date(note.deadLine) ? new Date(note.deadLine) <= currentDate : false;
 
     // Change the background color conditionally based on the deadline
-    const cartBgColor = isDeadlineReached ? 'bg-red-100' : 'bg-white';
+    const cartBgColor = isDeadlineReached ? 'bg-red-300' : 'bg-gray-300';
 
     return (
         <div className={`${cartBgColor} w-80 h-80 rounded-lg shadow-lg m-4 p-5 flex flex-col justify-between`}>
@@ -56,13 +56,13 @@ const NoteCart = ({ note, onDelete, onEdit, handleMoveLeft, handleMoveRight, ind
 
             {/* Action Buttons for Reordering */}
             <div className="flex justify-between mt-4">
-                <button onClick={() => handleMoveLeft(index)} className="flex items-center text-gray-300 hover:text-gray-900 transition" title="Move Left" disabled={index === 0}>
+                <button onClick={() => handleMoveLeft(index)} className="flex items-center text-blue-600  hover:text-gray-900 transition" title="Move Left" disabled={index === 0}>
                     <ArrowBackIcon fontSize="small" />
                     <span className="ml-1"></span>
                 </button>
                 <button
                     onClick={() => handleMoveRight(index)}
-                    className="flex items-center text-gray-300 hover:text-gray-900 transition"
+                    className="flex items-center text-blue-600  hover:text-gray-900 transition"
                     title="Move Right"
                     // disabled={index === notes.length - 1}
                 >

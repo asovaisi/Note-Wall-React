@@ -24,7 +24,7 @@ const Wall = ({ notes, dispatch, onEdit, onReOrder }: WallProps) => {
     };
     return (
         <>
-            <div className="h-20">
+            <div className="h-10">
                 <span> Number of Tasks : { notes.length}</span>
             </div>
             <div className="h-[2px] w-full bg-black"></div>
