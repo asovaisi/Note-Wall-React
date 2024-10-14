@@ -47,7 +47,7 @@ const NoteForm = ({ onAdd, onEdit, note }: NoteFormProps) => {
 
     return (
         <>
-            <div className="bg-gray-600 p-5 block rounded-lg shadow-2xl">
+            <div className="bg-gray-600 p-5 block fixed w-72 rounded-lg shadow-2xl">
                 <h2 className="text-white text-xl mb-4">{note ? "Edit Note" : "Add Note"}</h2>
 
                 <label className="text-white">Title</label>

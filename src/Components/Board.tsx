@@ -12,9 +12,11 @@ const Board = () => {
     useEffect(() => {
         const storedNotes = localStorage.getItem("notes");
         if (storedNotes) {
-            JSON.parse(storedNotes).map((n: Note) => {
-                dispatch({ type: NoteActionEnum.Add, payLoad: n });
-            });
+            if (notes.length === 0) {
+                JSON.parse(storedNotes).map((n: Note) => {
+                    dispatch({ type: NoteActionEnum.Add, payLoad: n });
+                });
+            }
         }
     }, []);
 
@@ -48,11 +50,25 @@ const Board = () => {
     };
 
     return (
-        <div className="flex">
-            <div className="bg-gray-800 w-1/4 h-lvh p-5">
+        // <div className="flex ">
+        //     <div className="bg-gray-800 w-1/5 h-lvh p-5">
+        //         <NoteForm onAdd={handleAdd} onEdit={handleEdit} note={editingNote} />
+        //     </div>
+        //     <div className="w-full h-full flex-grow p-5">
+        //         <Wall notes={notes} dispatch={dispatch} onEdit={startEditing} onReOrder={handleReorder} />
+        //     </div>
+        // </div>
+        <div className="flex h-screen">
+            {" "}
+            {/* Ensure the height covers the full viewport */}
+            <div className="bg-gray-800 w-1/4 h-full p-5 sticky top-0">
+                {" "}
+                {/* Sticky to make it stay on scroll */}
                 <NoteForm onAdd={handleAdd} onEdit={handleEdit} note={editingNote} />
             </div>
-            <div className="w-full h-full flex-grow p-5">
+            <div className="w-full h-full flex-grow p-5 overflow-y-auto">
+                {" "}
+                {/* Enable scrolling for the note wall */}
                 <Wall notes={notes} dispatch={dispatch} onEdit={startEditing} onReOrder={handleReorder} />
             </div>
         </div>
